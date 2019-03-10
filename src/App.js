@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import LocationForm from "./Components/LocationForm";
-import TodayWeather from "./Components/TodayWeather";
-import ForecastWeather from "./Components/ForecastWeather";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TodayWeather from "./components/TodayWeather";
+import ForecastWeather from "./components/ForecastWeather";
+import WeatherNavbar from "./components/WeatherNavbar";
 
 const API_KEY = "71eb129e18301960365e1221adc9cf1b";
 
@@ -11,11 +12,13 @@ class App extends Component {
         city: undefined,
         country:undefined,
         conditions: undefined,
+        conditionsMain: undefined,
         temperature: undefined,
         winddirection: undefined,
         windspeed: undefined,
         humidity: undefined,
-        forecast: undefined
+        forecast: undefined,
+        error: undefined
     }
 
     // fetches required weather data from OpenWeatherMap.org
@@ -30,43 +33,58 @@ class App extends Component {
         const data = await api_call.json();
         const data_forecast = await api_forecast_call.json();
 
-        console.log(data);
         console.log(data_forecast);
 
-        // set the weather data into state
-        this.setState({
-            city: data.name,
-            country:data.sys.country,
-            conditions: data.weather[0].description,
-            temperature: data.main.temp,
-            winddirection: data.wind.deg,
-            windspeed: data.wind.speed,
-            humidity: data.main.humidity,
-            forecast: [
-                data_forecast.list[6],
-                data_forecast.list[14],
-                data_forecast.list[23],
-                data_forecast.list[30],
-                data_forecast.list[37]
-                ]
-        });
-
-        console.log(this.state.forecast);
-    }
+        if (city && country) {
+            // set the weather data into state
+            this.setState({
+                city: data.name,
+                country:data.sys.country,
+                conditions: data.weather[0].description,
+                conditionsMain: data.weather[0].main,
+                temperature: Math.round(data.main.temp),
+                winddirection: data.wind.deg,
+                windspeed: Math.round(data.wind.speed),
+                humidity: data.main.humidity,
+                forecast: [
+                    data_forecast.list[6],
+                    data_forecast.list[14],
+                    data_forecast.list[23],
+                    data_forecast.list[30],
+                    data_forecast.list[36]
+                ],
+                error: ""
+            });
+        } else {
+            this.setState({
+                city: undefined,
+                country:undefined,
+                conditions: undefined,
+                conditionsMain: undefined,
+                temperature: undefined,
+                winddirection: undefined,
+                windspeed: undefined,
+                humidity: undefined,
+                forecast: undefined,
+                error: "Please enter your City and Country."
+            });
+        }
+    };
 
     render() {
     return (
         <div>
-            React Weather
-            <LocationForm getWeather={this.getWeather}/>
+            <WeatherNavbar getWeather={this.getWeather}/>
             <TodayWeather
                 city={this.state.city}
                 country={this.state.country}
                 conditions={this.state.conditions}
+                conditionsMain={this.state.conditionsMain}
                 temperature={this.state.temperature}
                 windspeed={this.state.windspeed}
                 winddirection={this.state.winddirection}
                 humidity={this.state.humidity}
+                error={this.state.error}
             />
             <ForecastWeather
                 forecast={this.state.forecast}
