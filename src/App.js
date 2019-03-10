@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'weather-icons-npm/css/weather-icons.css';
 import TodayWeather from "./components/TodayWeather";
 import ForecastWeather from "./components/ForecastWeather";
 import WeatherNavbar from "./components/WeatherNavbar";
@@ -12,7 +13,7 @@ class App extends Component {
         city: undefined,
         country:undefined,
         conditions: undefined,
-        conditionsMain: undefined,
+        conditionsId: undefined,
         temperature: undefined,
         winddirection: undefined,
         windspeed: undefined,
@@ -41,7 +42,7 @@ class App extends Component {
                 city: data.name,
                 country:data.sys.country,
                 conditions: data.weather[0].description,
-                conditionsMain: data.weather[0].main,
+                conditionsId: data.weather[0].id,
                 temperature: Math.round(data.main.temp),
                 winddirection: data.wind.deg,
                 windspeed: Math.round(data.wind.speed),
@@ -79,7 +80,7 @@ class App extends Component {
                 city={this.state.city}
                 country={this.state.country}
                 conditions={this.state.conditions}
-                conditionsMain={this.state.conditionsMain}
+                conditionsId={this.state.conditionsId}
                 temperature={this.state.temperature}
                 windspeed={this.state.windspeed}
                 winddirection={this.state.winddirection}
