@@ -41,7 +41,6 @@ class App extends Component {
             windspeed: data.wind.speed,
             humidity: data.main.humidity
         });
-
     }
 
     render() {
@@ -54,7 +53,8 @@ class App extends Component {
                 country={this.state.country}
                 conditions={this.state.conditions}
                 temperature={this.state.temperature}
-                wind={this.state.wind}
+                windspeed={this.state.windspeed}
+                winddirection={this.state.winddirection}
                 humidity={this.state.humidity}
             />
         </div>
