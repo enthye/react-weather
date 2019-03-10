@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LocationForm from "./Components/LocationForm";
 import TodayWeather from "./Components/TodayWeather";
+import ForecastWeather from "./Components/ForecastWeather";
 
 const API_KEY = "71eb129e18301960365e1221adc9cf1b";
 
@@ -13,7 +14,8 @@ class App extends Component {
         temperature: undefined,
         winddirection: undefined,
         windspeed: undefined,
-        humidity: undefined
+        humidity: undefined,
+        forecast: undefined
     }
 
     // fetches required weather data from OpenWeatherMap.org
@@ -39,8 +41,17 @@ class App extends Component {
             temperature: data.main.temp,
             winddirection: data.wind.deg,
             windspeed: data.wind.speed,
-            humidity: data.main.humidity
+            humidity: data.main.humidity,
+            forecast: [
+                data_forecast.list[6],
+                data_forecast.list[14],
+                data_forecast.list[23],
+                data_forecast.list[30],
+                data_forecast.list[37]
+                ]
         });
+
+        console.log(this.state.forecast);
     }
 
     render() {
@@ -56,6 +67,9 @@ class App extends Component {
                 windspeed={this.state.windspeed}
                 winddirection={this.state.winddirection}
                 humidity={this.state.humidity}
+            />
+            <ForecastWeather
+                forecast={this.state.forecast}
             />
         </div>
     );
