@@ -19,6 +19,13 @@ class ForecastWeather extends React.Component {
                         </thead>
                         <tbody>
                         <tr>
+                            <td><i className={`wi wi-owm-${this.props.forecast[0].weather[0].id}`}/></td>
+                            <td><i className={`wi wi-owm-${this.props.forecast[1].weather[0].id}`}/></td>
+                            <td><i className={`wi wi-owm-${this.props.forecast[2].weather[0].id}`}/></td>
+                            <td><i className={`wi wi-owm-${this.props.forecast[3].weather[0].id}`}/></td>
+                            <td><i className={`wi wi-owm-${this.props.forecast[4].weather[0].id}`}/></td>
+                        </tr>
+                        <tr>
                             <td>{this.props.forecast[0].weather[0].description}</td>
                             <td>{this.props.forecast[1].weather[0].description}</td>
                             <td>{this.props.forecast[2].weather[0].description}</td>

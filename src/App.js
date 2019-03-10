@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons-npm/css/weather-icons.css';
+import 'weather-icons-npm/css/weather-icons-wind.css';
 import TodayWeather from "./components/TodayWeather";
 import ForecastWeather from "./components/ForecastWeather";
 import WeatherNavbar from "./components/WeatherNavbar";
