@@ -17,7 +17,6 @@ class ForecastWeather extends React.Component {
                             <th scope="col">5-day</th>
                         </tr>
                         </thead>
-
                         <tbody>
                         <tr>
                             <td>{this.props.forecast[0].weather[0].description}</td>
