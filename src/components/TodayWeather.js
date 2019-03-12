@@ -10,19 +10,19 @@ class TodayWeather extends React.Component {
                     <table>
                         <tbody>
                             <tr>
-                                <td>
+                                <td className="col-md-4">
                                     <i className={`wi wi-owm-${this.props.conditionsId}`}/>
-                                    <p>{this.props.conditions}</p>
+                                    <p className="pCentre">{this.props.conditions}</p>
                                 </td>
-                                <td>
+                                <td className="col-md-4">
                                     <i className="wi wi-thermometer"/>
                                     <p>{this.props.temperature}&#8451;</p>
                                 </td>
-                                <td>
+                                <td className="col-md-4">
                                     <i className="wi wi-humidity"/>
                                     <p>{this.props.humidity}%</p>
                                 </td>
-                                <td>
+                                <td className="col-md-4">
                                     <i className={`wi wi-wind towards-${this.props.winddirection}-deg`}/>
                                     <p>{this.props.windspeed} km/hr</p>
                                 </td>
