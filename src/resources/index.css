@@ -1,9 +1,15 @@
-.pCentre{
+.centre{
     text-align: center;
 }
 
-.todayWeather {
+.centreImage{
+    display: block;
+    margin: 0 auto;
+}
 
+.tableWeather {
+    table-layout: fixed;
+    width: 100%;
 }
 
 body {
