@@ -6,7 +6,7 @@ class TodayWeather extends React.Component {
             <div>
                 {this.props.city && this.props.country &&
                 <div>
-                    <h1>Today's Weather for {this.props.city}, {this.props.country}.</h1>
+                    <h1 align="center">Today's Weather for {this.props.city}, {this.props.country}.</h1>
                     <table className="tableWeather">
                         <tbody>
                             <tr>
@@ -29,7 +29,6 @@ class TodayWeather extends React.Component {
                             </tr>
                         </tbody>
                     </table>
-
 
                 </div>}
                 {this.props.error}

@@ -6,7 +6,7 @@ class ForecastWeather extends React.Component {
             <div>
                 {this.props.forecast &&
                 <div>
-                    <h1>5-day Weather Forecast</h1>
+                    <h1 align="center">5-day Weather Forecast</h1>
                     <table className="tableWeather">
                         <thead>
                         <tr>

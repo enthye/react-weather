@@ -12,6 +12,21 @@
     width: 100%;
 }
 
+.buttonMain {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    margin: 8px;
+    border-radius: 24px;
+}
+
+.inputMain {
+    border: none;
+    border-radius: 24px;
+    margin: 8px;
+    padding-left: 20px;
+}
+
 body {
   margin: 0;
   padding: 0;
