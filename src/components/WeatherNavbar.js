@@ -10,8 +10,8 @@ export default class WeatherNavbar extends Component {
                              href="/">React Weather</NavbarBrand>
 
                 <form onSubmit={this.props.getWeather}>
-                    <input className="inputMain" type="text" name="city" placeholder="City e.g. Sydney"/>
-                    <input className="inputMain" type="text" name="country" placeholder="Country e.g. Australia"/>
+                    <input className="inputMain" type="text" name="city" placeholder="City e.g. Sydney" required/>
+                    <input className="inputMain" type="text" name="country" placeholder="Country e.g. Australia" required/>
                     <button className="buttonMain">Get Weather!</button>
                 </form>
 
