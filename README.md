@@ -4,3 +4,5 @@ React Weather
 - requires the packages (to be added)
   * bootstrap https://getbootstrap.com/
   * weather-icons https://erikflowers.github.io/weather-icons/
+  
+ ![img](https://github.com/enthye/react-weather/blob/master/Untitled.png)
